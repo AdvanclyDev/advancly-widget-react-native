@@ -1,0 +1,22 @@
+{
+  "name": "advancly-widget-react-native-example",
+  "displayName": "AdvanclyWidgetReactNative Example",
+  "expo": {
+    "name": "advancly-widget-react-native-example",
+    "slug": "advancly-widget-react-native-example",
+    "description": "Example app for advancly-widget-react-native",
+    "privacy": "public",
+    "version": "1.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
