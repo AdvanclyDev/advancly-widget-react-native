@@ -1,3 +1,7 @@
-export function multiply(a: number, b: number): Promise<number> {
-  return Promise.resolve(a * b);
-}
+import {NativeModules} from 'react-native';
+import AdvanclyWidget from './Advancly';
+import * as advanclyProps from './types';
+
+export {AdvanclyWidget, advanclyProps};
+
+export default NativeModules.ReactNativePaystackWebviewModule;
