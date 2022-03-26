@@ -1,6 +1,6 @@
 # Advancly Widget React Native
 
-This package enables you to give loans to your borrowers through Advancly platform. Install, and have fun with it.)
+This package enables you to give loans to your borrowers through Advancly platform. Install, and have fun with it.
 
 ## Installation
 
@@ -28,7 +28,9 @@ for expo applications run;
 
 and that's it, you're all good to go!
 
-<img width="306" alt="Screenshot of library in action" src="">
+<img width="306" alt="Screenshot of library while loading" src="https://user-images.githubusercontent.com/102379468/160243723-e40f5f2c-146d-450b-8b9e-2603ea7061bf.png">
+<img width="306" alt="Screenshot of library for signup" src="https://user-images.githubusercontent.com/102379468/160243727-50ba9bbe-c222-4646-b9f7-4d46a42cddff.png">
+<img width="306" alt="Screenshot of library for requesting loan" src="https://user-images.githubusercontent.com/102379468/160243726-cfc7466e-0410-4445-b850-74a32675e95c.png">
 
 ### [](https://github.com/AdvanclyDev/advancly-widget-react-native#usage)Usage
 
