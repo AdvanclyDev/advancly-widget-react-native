@@ -4,4 +4,4 @@ import * as advanclyProps from './types';
 
 export { AdvanclyWidget, advanclyProps };
 
-export default NativeModules.ReactNativePaystackWebviewModule;
+export default NativeModules.AdvanclyWidget;
