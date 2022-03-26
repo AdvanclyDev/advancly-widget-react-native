@@ -1,6 +1,5 @@
 export enum RESPONSE_STATUSES {
   SUCCESS = 'success',
-  ERROR = 'error',
   CANCEL = 'cancel',
 }
 
@@ -17,27 +16,27 @@ export interface IResponse {
 }
 
 export interface AdvanclyProps {
-  aggregator_id: number;
-  bank_account_number: string | number;
-  bank_code: string | number;
-  borrower_phone: string;
-  bvn_number: string;
-  aggregator_loan_ref: string;
-  cac_number: string;
-  city: string;
-  company_name: string;
-  customer_type: '1' | '2';
-  email: string;
-  first_name: string;
-  gender: string;
-  last_name: string;
-  photo_url?: string;
-  public_key: string;
-  residence_address: string;
-  state: string;
-  product_id: number;
-  product_code: string;
-  tenure: number;
+  aggregator_id: number; // The ID of the aggregator / business giving out the loan
+  bank_account_number: string | number; // The borrower's bank account number
+  bank_code: string | number; // The borrower's bank code on Advancly
+  borrower_phone: string; // The borrower's phone number
+  bvn_number: string; // The borrower's BVN number
+  aggregator_loan_ref?: string; // The loan reference number on your platform Not required
+  cac_number?: string; // For corporate borrowers, provide the CAC number
+  city: string; // City of the borrower
+  company_name?: string; // For corporate borrowers, provide the company name
+  customer_type: '1' | '2'; // 1 for individual, 2 for corporate
+  email: string; // The borrower's email address
+  first_name: string; // The borrower's first name
+  gender: string; // The borrower's gender
+  last_name: string; // The borrower's last name
+  photo_url?: string; // The photo url of the borrower
+  public_key: string; // Your public key. Sign up on https://aggregator.advancly.com to get yours.
+  residence_address: string; // The borrower's address
+  state: string; // The state of the borrower
+  product_id: number; // The product ID of the loan. This can be gotten on the aggregator's platform
+  product_code: string; // The product code of the loan. This can be gotten on the aggregator's platform
+  tenure: number; // The loan tenure in days
   customStyles?: {
     buttonBackgroundColor?: string; // Can be string or the color code
     buttonTextColor?: string; // Can be string or the color code
@@ -48,10 +47,8 @@ export interface AdvanclyProps {
     dropdownTextColor?: string; // Can be string or the color code
     dropdownBackgroundColor?: string; // Can be string or the color code
   };
-  onCancel: (response: IResponse) => void;
-  onError: (response: IResponse) => void;
-  onSuccess: (response: IResponse) => void;
-  startTransaction?: (response: IResponse) => void;
-  endTransaction: (response: IResponse) => void;
-  autoStart?: boolean;
+  onCancel: (response: IResponse) => void; // Handle the cancel event from the widget
+  onSuccess: (response: IResponse) => void; // Handle the success event from the widget
+  autoStart?: boolean; // Defaults to false. If set to true, the widget will automatically start
+  showWidget: boolean; // Defaults to false. If set to true, the widget will come up
 }

@@ -1,5 +1,5 @@
 import { NativeModules } from 'react-native';
-import AdvanclyWidget from './Advancly';
+import AdvanclyWidget from './AdvanclyWidget';
 import * as advanclyProps from './types';
 
 export { AdvanclyWidget, advanclyProps };

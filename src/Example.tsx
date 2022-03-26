@@ -1,39 +1,43 @@
 /* eslint-disable react-native/no-inline-styles */
 import React, { Fragment, useState } from 'react';
-import { Alert, Text, TouchableOpacity } from 'react-native';
-import Advancly from './Advancly';
+import { Text, TouchableOpacity, View } from 'react-native';
+import AdvanclyWidget from './AdvanclyWidget';
 import type { IResponse } from './types/index';
 
 export default function App() {
   const onSuccess = (response: IResponse) => {
-    Alert.alert('Success', JSON.stringify(response));
-  };
-  const onError = (response: IResponse) => {
-    Alert.alert('Error', JSON.stringify(response));
+    console.log('Success', JSON.stringify(response));
   };
   const onCancel = (response: IResponse) => {
-    Alert.alert('Cancel', JSON.stringify(response));
-  };
-  const startTransaction = () => {
-    setShowModal(true);
-  };
-  const endTransaction = () => {
-    setShowModal(false);
+    console.log('Cancel', JSON.stringify(response));
   };
 
   const [showModal, setShowModal] = useState(false);
   return (
     <Fragment>
-      <TouchableOpacity
-        onPress={() => {
-          setShowModal(true);
+      <View
+        style={{
+          marginTop: 100,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
         }}
-        style={{ marginTop: 100 }}
       >
-        <Text>Show Widget </Text>
-      </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => {
+            setShowModal(true);
+          }}
+          style={{
+            backgroundColor: '#377dff',
+            paddingHorizontal: 20,
+            paddingVertical: 10,
+          }}
+        >
+          <Text style={{ color: '#fff' }}>Show Widget </Text>
+        </TouchableOpacity>
+      </View>
 
-      <Advancly
+      <AdvanclyWidget
         aggregator_id={29}
         bank_account_number="3055662696"
         bank_code="011"
@@ -66,12 +70,8 @@ export default function App() {
           dropdownBackgroundColor: '#fff',
         }}
         onSuccess={onSuccess}
-        onError={onError}
         onCancel={onCancel}
-        showModal={showModal}
-        setShowModal={setShowModal}
-        startTransaction={startTransaction}
-        endTransaction={endTransaction}
+        showWidget={showModal}
         autoStart={false}
       />
     </Fragment>

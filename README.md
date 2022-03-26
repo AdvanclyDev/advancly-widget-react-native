@@ -1,10 +1,10 @@
-# Advancly-Widget-React-Native
+# Advancly Widget React Native
 
-This package enables you to give loans to your borrowers. Install, and have fun with it.)
+This package enables you to give loans to your borrowers through Advancly platform. Install, and have fun with it.)
 
-### [](https://github.com/AdvanclyDev/advancly-widget-react-native#installation)Installation
+## Installation
 
-Add Advancly-Widget-React-Native to your project by running;
+Add Advancly Widget to your React Native project by running;
 
 `npm install advancly-widget-react-native`
 
@@ -12,7 +12,7 @@ or
 
 `yarn add advancly-widget-react-native`
 
-### **One more thing**
+## One more thing
 
 This package has a dependency. The name of the dependency is **react-native-webview**
 
@@ -30,40 +30,34 @@ and that's it, you're all good to go!
 
 <img width="306" alt="Screenshot of library in action" src="">
 
-### [](https://github.com/AdvanclyDev/advancly-widget-react-native#usage)Usage 1
+### [](https://github.com/AdvanclyDev/advancly-widget-react-native#usage)Usage
 
 ```javascript
-import { Fragment, useState } from "react";
-import { Text, TouchableOpacity } from "react-native";
-import { AdvanclyWidget, advanclyProps } from "advancly-widget-react-native";
+import { Fragment, useState } from 'react';
+import { Text, TouchableOpacity } from 'react-native';
+import { AdvanclyWidget, advanclyProps } from 'advancly-widget-react-native';
 
 export default function App() {
   const onSuccess = (response: advanclyProps.IResponse) => {
-    console.log("Success", JSON.stringify(response));
+    console.log('Success', JSON.stringify(response));
   };
   const onError = (response: advanclyProps.IResponse) => {
-    console.log("Error", JSON.stringify(response));
+    console.log('Error', JSON.stringify(response));
   };
   const onCancel = (response: advanclyProps.IResponse) => {
-    console.log("Cancel", JSON.stringify(response));
-  };
-  const startTransaction = () => {
-    setShowModal(true);
-  };
-  const endTransaction = () => {
-    setShowModal(false);
+    console.log('Cancel', JSON.stringify(response));
   };
 
-  const [showModal, setShowModal] = useState(false);
+  const [showWidget, setShowWidget] = useState(false);
   return (
     <Fragment>
       <TouchableOpacity
         onPress={() => {
-          setShowModal(true);
+          setShowWidget(true);
         }}
-        style={{ margin: 100, backgroundColor: "#377dff" }}
+        style={{ margin: 100, backgroundColor: '#377dff' }}
       >
-        <Text style={{ color: "#fff" }}>Show Widget</Text>
+        <Text style={{ color: '#fff' }}>Show Widget</Text>
       </TouchableOpacity>
 
       <AdvanclyWidget
@@ -82,38 +76,62 @@ export default function App() {
         gender="male"
         last_name="User"
         photo_url=""
-        public_key="enter-your-key-here"
+        public_key="enter-your-public-key-here"
         residence_address="123, Amen Road"
         state="Lagos"
         product_id={00}
         product_code="ABC"
         tenure={00}
         customStyles={{
-          buttonBackgroundColor: "#377dff",
-          buttonTextColor: "#fff",
-          acceptButtonBackgroundColor: "#377dff",
-          acceptButtonTextColor: "#fff",
-          declineButtonBackgroundColor: "#377dff",
-          declineButtonTextColor: "#fff",
-          dropdownTextColor: "#000",
-          dropdownBackgroundColor: "#fff",
+          buttonBackgroundColor: '#377dff',
+          buttonTextColor: '#fff',
+          acceptButtonBackgroundColor: '#377dff',
+          acceptButtonTextColor: '#fff',
+          declineButtonBackgroundColor: '#377dff',
+          declineButtonTextColor: '#fff',
+          dropdownTextColor: '#000',
+          dropdownBackgroundColor: '#fff',
         }}
         onSuccess={onSuccess}
         onError={onError}
         onCancel={onCancel}
-        showModal={showModal}
-        setShowModal={setShowModal}
-        startTransaction={startTransaction}
-        endTransaction={endTransaction}
+        showWidget={showWidget}
         autoStart={false}
       />
     </Fragment>
   );
 }
-
+```
 
 ## Props
 
+| Name                                 |                                                       Description                                                       |                Extra Information |
+| :----------------------------------- | :---------------------------------------------------------------------------------------------------------------------: | -------------------------------: |
+| `public_key`                         |                              Public key (sign up on aggregator.advancly.com to get yours)                               |                  default: `nill` |
+| `aggregator_id`                      |             The ID of you the aggregator. You can get this on the settings page of your Advancly platform.              |                  default: `nill` |
+| `email`                              |                                                Borrower's email address                                                 |                  default: `nill` |
+| `first_name`                         |                                                  Borrower's first name                                                  |                  default: `nill` |
+| `last_name`                          |                                                  Borrower's last name                                                   |                  default: `nill` |
+| `gender`                             |                                          Borrower's gender. `male` or `female`                                          |                  default: `nill` |
+| `product_id`                         |  The ID of the loan product on Advancly platform. You can get this on the Loan Products page of your Advancly platform  |                  default: `nill` |
+| `product_code`                       | The code of the loan product on Advancly platform. You can get this on the Loan Products page of your Advancly platform |                  default: `nill` |
+| `tenure`                             |                                            Borrower's loan tenure (in days)                                             |                  default: `nill` |
+| `bank_account_number`                |                                             Borrower's bank account number                                              |                  default: `nill` |
+| `bank_code`                          |                                            Borrower's bank code on Advancly.                                            |                  default: `nill` |
+| `borrower_phone`                     |                                                 Borrower's phone number                                                 |                  default: `nill` |
+| `bvn_number`                         |                                                     Borrower's BVN                                                      |                  default: `nill` |
+| `aggregator_loan_ref` (not required) |                                      Loan reference number on aggregator platform                                       | default: `Date.now().toString()` |
+| `cac_number` (not required)          |                                 The borrower's CAC number. For corporate borrower only                                  |                  default: `nill` |
+| `residence_address`                  |                                                 The borrower's address                                                  |                  default: `nill` |
+| `city`                               |                                                   The borrower's city                                                   |                  default: `nill` |
+| `state`                              |                                                  The borrower's state                                                   |                  default: `nill` |
+| `autoStart`                          |                                         Auto start payment once page is opened                                          |                 default: `false` |
+| `company_name` (not required)        |                        The name of the borrower's company. This is for corporate borrowers only.                        |                  default: `nill` |
+| `customer_type`                      |             This can be either `1` or `2`. `1` is for individual borrowers. `2` is for corporate borrowers              |                  default: `nill` |
+| `photo_url`                          |                                            The url of the borrower's image.                                             |                  default: `nill` |
+| `onCancel`                           |                                   callback function when borrower cancels the widget                                    |                  default: `nill` |
+| `onSuccess`                          |                               callback function when borrower's transaction is successful                               |                  default: `nill` |
+| `showWidget`                         |                                    A boolean that controls when then widget is shown                                    |                 default: `false` |
 
 ## [](https://github.com/AdvanclyDev/advancly-widget-react-native#contributions)Contributions
 
@@ -127,7 +145,7 @@ This project is licensed under MIT license.
 
 ## Contributors ✨
 
-Thanks goes to Gbenga Olufeyimi (GbengaCodes) for creating this package ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+Thanks goes to Gbenga Olufeyimi (@GbengaCodes) for creating this package ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
@@ -144,4 +162,7 @@ Thanks goes to Gbenga Olufeyimi (GbengaCodes) for creating this package ([emoji 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+
+```
+
 ```
