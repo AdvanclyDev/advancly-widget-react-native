@@ -2,17 +2,19 @@
 import React, { Fragment, useState } from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 import AdvanclyWidget from './AdvanclyWidget';
-import type { IResponse } from './types/index';
+import { ENVIRONMENT, IResponse } from './types/index';
 
 export default function App() {
+  const [showModal, setShowModal] = useState(false);
   const onSuccess = (response: IResponse) => {
+    setShowModal(false);
     console.log('Success', JSON.stringify(response));
   };
   const onCancel = (response: IResponse) => {
+    setShowModal(false);
     console.log('Cancel', JSON.stringify(response));
   };
 
-  const [showModal, setShowModal] = useState(false);
   return (
     <Fragment>
       <View
@@ -73,6 +75,7 @@ export default function App() {
         onCancel={onCancel}
         showWidget={showModal}
         autoStart={false}
+        environment={ENVIRONMENT.TEST}
       />
     </Fragment>
   );

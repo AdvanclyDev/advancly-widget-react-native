@@ -101,6 +101,7 @@ export default function App() {
         onCancel={onCancel}
         showWidget={showWidget}
         autoStart={false}
+        environment={advanclyProps.ENVIRONMENT.TEST}
       />
     </Fragment>
   );
@@ -109,33 +110,34 @@ export default function App() {
 
 ## Props
 
-| Name                                 |                                                       Description                                                       |                Extra Information |
-| :----------------------------------- | :---------------------------------------------------------------------------------------------------------------------: | -------------------------------: |
-| `public_key`                         |                              Public key (sign up on aggregator.advancly.com to get yours)                               |                  default: `nill` |
-| `aggregator_id`                      |             The ID of you the aggregator. You can get this on the settings page of your Advancly platform.              |                  default: `nill` |
-| `email`                              |                                                Borrower's email address                                                 |                  default: `nill` |
-| `first_name`                         |                                                  Borrower's first name                                                  |                  default: `nill` |
-| `last_name`                          |                                                  Borrower's last name                                                   |                  default: `nill` |
-| `gender`                             |                                          Borrower's gender. `male` or `female`                                          |                  default: `nill` |
-| `product_id`                         |  The ID of the loan product on Advancly platform. You can get this on the Loan Products page of your Advancly platform  |                  default: `nill` |
-| `product_code`                       | The code of the loan product on Advancly platform. You can get this on the Loan Products page of your Advancly platform |                  default: `nill` |
-| `tenure`                             |                                            Borrower's loan tenure (in days)                                             |                  default: `nill` |
-| `bank_account_number`                |                                             Borrower's bank account number                                              |                  default: `nill` |
-| `bank_code`                          |                                            Borrower's bank code on Advancly.                                            |                  default: `nill` |
-| `borrower_phone`                     |                                                 Borrower's phone number                                                 |                  default: `nill` |
-| `bvn_number`                         |                                                     Borrower's BVN                                                      |                  default: `nill` |
-| `aggregator_loan_ref` (not required) |                                      Loan reference number on aggregator platform                                       | default: `Date.now().toString()` |
-| `cac_number` (not required)          |                                 The borrower's CAC number. For corporate borrower only                                  |                  default: `nill` |
-| `residence_address`                  |                                                 The borrower's address                                                  |                  default: `nill` |
-| `city`                               |                                                   The borrower's city                                                   |                  default: `nill` |
-| `state`                              |                                                  The borrower's state                                                   |                  default: `nill` |
-| `autoStart`                          |                                         Auto start payment once page is opened                                          |                 default: `false` |
-| `company_name` (not required)        |                        The name of the borrower's company. This is for corporate borrowers only.                        |                  default: `nill` |
-| `customer_type`                      |             This can be either `1` or `2`. `1` is for individual borrowers. `2` is for corporate borrowers              |                  default: `nill` |
-| `photo_url`                          |                                            The url of the borrower's image.                                             |                  default: `nill` |
-| `onCancel`                           |                                   callback function when borrower cancels the widget                                    |                  default: `nill` |
-| `onSuccess`                          |                               callback function when borrower's transaction is successful                               |                  default: `nill` |
-| `showWidget`                         |                                    A boolean that controls when then widget is shown                                    |                 default: `false` |
+| Name                                 |                                                         Description                                                         |                Extra Information |
+| :----------------------------------- | :-------------------------------------------------------------------------------------------------------------------------: | -------------------------------: |
+| `public_key`                         |                                Public key (sign up on aggregator.advancly.com to get yours)                                 |                  default: `nill` |
+| `aggregator_id`                      |               The ID of you the aggregator. You can get this on the settings page of your Advancly platform.                |                  default: `nill` |
+| `email`                              |                                                  Borrower's email address                                                   |                  default: `nill` |
+| `first_name`                         |                                                    Borrower's first name                                                    |                  default: `nill` |
+| `last_name`                          |                                                    Borrower's last name                                                     |                  default: `nill` |
+| `gender`                             |                                            Borrower's gender. `male` or `female`                                            |                  default: `nill` |
+| `product_id`                         |    The ID of the loan product on Advancly platform. You can get this on the Loan Products page of your Advancly platform    |                  default: `nill` |
+| `product_code`                       |   The code of the loan product on Advancly platform. You can get this on the Loan Products page of your Advancly platform   |                  default: `nill` |
+| `tenure`                             |                                              Borrower's loan tenure (in days)                                               |                  default: `nill` |
+| `bank_account_number`                |                                               Borrower's bank account number                                                |                  default: `nill` |
+| `bank_code`                          |                                              Borrower's bank code on Advancly.                                              |                  default: `nill` |
+| `borrower_phone`                     |                                                   Borrower's phone number                                                   |                  default: `nill` |
+| `bvn_number`                         |                                                       Borrower's BVN                                                        |                  default: `nill` |
+| `aggregator_loan_ref` (not required) |                                        Loan reference number on aggregator platform                                         | default: `Date.now().toString()` |
+| `cac_number` (not required)          |                                   The borrower's CAC number. For corporate borrower only                                    |                  default: `nill` |
+| `residence_address`                  |                                                   The borrower's address                                                    |                  default: `nill` |
+| `city`                               |                                                     The borrower's city                                                     |                  default: `nill` |
+| `state`                              |                                                    The borrower's state                                                     |                  default: `nill` |
+| `autoStart`                          |                                           Auto start payment once page is opened                                            |                 default: `false` |
+| `company_name` (not required)        |                          The name of the borrower's company. This is for corporate borrowers only.                          |                  default: `nill` |
+| `customer_type`                      |               This can be either `1` or `2`. `1` is for individual borrowers. `2` is for corporate borrowers                |                  default: `nill` |
+| `photo_url`                          |                                              The url of the borrower's image.                                               |                  default: `nill` |
+| `onCancel`                           |                                     callback function when borrower cancels the widget                                      |                  default: `nill` |
+| `onSuccess`                          |                                 callback function when borrower's transaction is successful                                 |                  default: `nill` |
+| `showWidget`                         |                                      A boolean that controls when then widget is shown                                      |                 default: `false` |
+| `environment`                        | An enum that tells the environment the widget should be shown in. This can be either `"test"`, `"staging"`, `"production"`. |                default: `"test"` |
 
 ## [](https://github.com/AdvanclyDev/advancly-widget-react-native#contributions)Contributions
 

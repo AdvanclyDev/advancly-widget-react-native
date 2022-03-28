@@ -3,6 +3,12 @@ export enum RESPONSE_STATUSES {
   CANCEL = 'cancel',
 }
 
+export enum ENVIRONMENT {
+  TEST = 'test',
+  STAGING = 'staging',
+  PRODUCTION = 'production',
+}
+
 export interface IResponse {
   status: RESPONSE_STATUSES;
   data: {
@@ -51,4 +57,5 @@ export interface AdvanclyProps {
   onSuccess: (response: IResponse) => void; // Handle the success event from the widget
   autoStart?: boolean; // Defaults to false. If set to true, the widget will automatically start
   showWidget: boolean; // Defaults to false. If set to true, the widget will come up
+  environment: ENVIRONMENT; // Defaults to "test". Can be set to "staging" or "production"
 }

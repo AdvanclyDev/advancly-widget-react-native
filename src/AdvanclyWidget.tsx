@@ -3,10 +3,7 @@ import React, { useState } from 'react';
 import { Modal, SafeAreaView } from 'react-native';
 import { WebView } from 'react-native-webview';
 import { Fragment, useEffect } from 'react';
-import { AdvanclyProps, RESPONSE_STATUSES } from './types';
-
-const BASE_URL =
-  'https://advancly-borrower.test.vggdev.com/create-loan-account/';
+import { AdvanclyProps, ENVIRONMENT, RESPONSE_STATUSES } from './types';
 
 const AdvanclyWidget: React.ForwardRefRenderFunction<
   React.ReactNode,
@@ -38,6 +35,7 @@ const AdvanclyWidget: React.ForwardRefRenderFunction<
   onCancel,
   showWidget,
   autoStart = false,
+  environment = ENVIRONMENT.TEST,
 }) => {
   const msgToPost = {
     aggregator_id,
@@ -64,7 +62,20 @@ const AdvanclyWidget: React.ForwardRefRenderFunction<
     customStyles,
   };
 
-  const widgetUrl = `${BASE_URL}?message=${JSON.stringify(msgToPost)}`;
+  const BASE_URL = () => {
+    switch (environment) {
+      case ENVIRONMENT.TEST:
+        return 'https://advancly-borrower.test.vggdev.com/create-loan-account/';
+      case ENVIRONMENT.STAGING:
+        return 'https://advancly-borrower.staging.vggdev.com/create-loan-account/';
+      case ENVIRONMENT.PRODUCTION:
+        return 'https://borrower.advancly.com/create-loan-account/';
+      default:
+        return 'https://advancly-borrower.test.vggdev.com/create-loan-account/';
+    }
+  };
+
+  const widgetUrl = `${BASE_URL()}?message=${JSON.stringify(msgToPost)}`;
 
   const messageReceived = (data: string) => {
     const webResponse: any = JSON.parse(data);
