@@ -1,6 +1,6 @@
 {
   "name": "advancly-widget-react-native",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "This is the package that can be used to integrate advancly loan widget into your react native mobile app",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
