@@ -65,26 +65,26 @@ export default function App() {
       </TouchableOpacity>
 
       <AdvanclyWidget
-        aggregator_id={1}
-        bank_account_number="0000000000"
+        aggregator_id={29}
+        bank_account_number="1122334455"
         bank_code="000"
-        borrower_phone="08000000000"
+        borrower_phone="08100000000"
         bvn_number="22222222222"
         aggregator_loan_ref={Date.now().toString()}
-        cac_number="22332222"
-        city="Lagos"
-        company_name="Advancly Technologies Limited"
+        cac_number="2222222"
+        city="Mubuntu"
+        company_name="HAIRTOPIA EX PARTE"
         customer_type="1"
-        email="helloworld@test.com"
-        first_name="Test"
+        email="hellworld@gmail.com"
+        first_name="John"
         gender="male"
-        last_name="User"
+        last_name="Doe"
         photo_url=""
-        public_key="enter-your-public-key-here"
-        residence_address="123, Amen Road"
+        public_key="AAAAAAAAAAAA"
+        residence_address="100 Lagos Road"
         state="Lagos"
         product_id={00}
-        product_code="ABC"
+        product_code="AAAA"
         tenure={00}
         customStyles={{
           buttonBackgroundColor: '#377dff',
